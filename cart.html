@@ -1,3 +1,100 @@
-list of added products 
-total price
-Checkout product
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Beauty Bloom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Beauty Bloom</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shopping Cart -->
+    <section class="cart-section">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            
+            <div class="cart-items">
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="https://via.placeholder.com/150x100" alt="Luxury Face Cream">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3>Luxury Face Cream</h3>
+                        <p class="cart-item-price">$49.99</p>
+                        <div class="quantity-controls">
+                            <button class="btn">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="btn">+</button>
+                        </div>
+                        <button class="btn remove-item">Remove</button>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="https://via.placeholder.com/150x100" alt="Radiance Serum">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3>Radiance Serum</h3>
+                        <p class="cart-item-price">$34.99</p>
+                        <div class="quantity-controls">
+                            <button class="btn">-</button>
+                            <input type="number" value="1" min="1">
+                            <button class="btn">+</button>
+                        </div>
+                        <button class="btn remove-item">Remove</button>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <h2>Cart Summary</h2>
+                    <div class="cart-total">
+                        <span>Subtotal:</span>
+                        <span>$84.98</span>
+                    </div>
+                    <div class="cart-total">
+                        <span>Tax:</span>
+                        <span>$0.00</span>
+                    </div>
+                    <div class="cart-total total">
+                        <span>Total:</span>
+                        <span>$84.98</span>
+                    </div>
+                    <a href="checkout.html" class="btn">Proceed to Checkout</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p>Email: info@beautybloom.com</p>
+                <p>Phone: (555) 123-4567</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

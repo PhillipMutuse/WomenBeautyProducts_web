@@ -1,4 +1,141 @@
-this will be our homepage with  product highlight
-navigation bar
-Featured products section 
-footer(contact info and social media links)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Bloom - Your Perfect Glow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+    <script src="script.js"></script>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-flower"></i>
+            </div>
+            Beauty Bloom
+        </a>
+        <div class="nav-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <a href="shop.html">
+                <i class="fas fa-shopping-bag"></i>
+                Shop
+            </a>
+            <a href="about.html">
+                <i class="fas fa-info-circle"></i>
+                About
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </a>
+            <a href="cart.html">
+                <i class="fas fa-shopping-cart"></i>
+                Cart
+            </a>
+        </div>
+    </div>
+
+    <!-- Auth Section -->
+    <div class="auth-section">
+        <button class="auth-btn" onclick="toggleAuthDropdown()">
+            <i class="fas fa-user"></i>
+            Login/Register
+        </button>
+        <div class="auth-dropdown" id="authDropdown">
+            <form id="loginForm">
+                <h3>Login</h3>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="#" onclick="toggleAuthForm('register')">Register</a></p>
+            </form>
+            <form id="registerForm" style="display: none;">
+                <h3>Register</h3>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+                <p class="auth-switch">Already have an account? <a href="#" onclick="toggleAuthForm('login')">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+        <div class="container">
+            <h1>Unleash Your Beauty</h1>
+            <p>Professional salon-quality products for your home</p>
+            <div class="hero-buttons">
+                <a href="shop.html" class="btn">Shop Now</a>
+                <a href="about.html" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Luxury Face Cream" class="product-image">
+                <div class="product-info">
+                    <div class="product-info">
+                        <h3 class="product-name">Luxury Face Cream</h3>
+                        <p class="product-price">$49.99</p>
+                        <div class="product-actions">
+                            <a href="product.html" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-add-to-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Glow Serum" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Radiance Serum</h3>
+                    <p class="product-price">$34.99</p>
+                    <a href="product.html" class="btn">View Details</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Lipstick Set" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Matte Lipstick Set</h3>
+                    <p class="product-price">$29.99</p>
+                    <a href="product.html" class="btn">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                <p>Email: info@beautybloom.com</p>
+                <p>Phone: (555) 123-4567</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
