@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Beauty Bloom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .admin-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-form {
+            display: grid;
+            gap: 1rem;
+        }
+        .category-list {
+            list-style: none;
+            padding: 0;
+        }
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .product-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-flower"></i>
+            </div>
+            Beauty Bloom
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="admin.html">Admin</a>
+        </div>
+    </div>
+
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+        
+        <div class="admin-section">
+            <h2>Add New Product</h2>
+            <form id="productForm" class="product-form">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="number" id="productPrice" placeholder="Price" required>
+                <select id="productCategory" required>
+                    <option value="">Select Category</option>
+                </select>
+                <input type="file" id="productImage" accept="image/*" required>
+                <button type="submit" class="btn-primary">Add Product</button>
+            </form>
+        </div>
+
+        <div class="admin-section">
+            <h2>Manage Categories</h2>
+            <div id="categorySection">
+                <input type="text" id="newCategory" placeholder="Add new category">
+                <button onclick="addCategory()" class="btn-primary">Add Category</button>
+                <ul id="categoryList" class="category-list"></ul>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <h2>Manage Products</h2>
+            <div id="productsSection">
+                <div id="productsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

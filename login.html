@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Beauty Bloom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px var(--shadow-color-dark);
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .login-header p {
+            color: var(--text-light);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #ff1493;
+        }
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #ff8000;
+        }
+        .auth-switch {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-light);
+        }
+        .auth-switch a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .auth-switch a:hover {
+            text-decoration: underline;
+            color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <div class="top-nav">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-flower"></i>
+            </div>
+            Beauty Bloom
+        </a>
+        <div class="nav-links">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <a href="shop.html">
+                <i class="fas fa-shopping-bag"></i>
+                Shop
+            </a>
+            <a href="about.html">
+                <i class="fas fa-info-circle"></i>
+                About
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-envelope"></i>
+                Contact
+            </a>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to your account</p>
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn-primary">Login</button>
+            <button type="button" class="btn-secondary" onclick="toggleAuthForm('register')">Create Account</button>
+            <div class="auth-switch">
+                <a href="admin.html">Admin Login</a>
+            </div>
+        </form>
+
+        <form id="registerForm" style="display: none;">
+            <div class="form-group">
+                <label for="registerEmail">Email Address</label>
+                <input type="email" id="registerEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" required>
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+            <button type="button" class="btn-secondary" onclick="toggleAuthForm('login')">Back to Login</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleAuthForm(formType) {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            
+            if (formType === 'register') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+            } else {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+            }
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add login logic here
+            alert('Login functionality will be implemented with database integration');
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add registration logic here
+            alert('Registration functionality will be implemented with database integration');
+        });
+    </script>
+</body>
+</html>
