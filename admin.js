@@ -67,40 +67,6 @@ function updateCategoryList() {
     categoryList.innerHTML = categories.map(category => `
         <li class="category-item">
             ${category}
-            <button onclick="removeCategory('${category}')" class="btn-danger">Remove</button>
-        </li>
-    `).join('');
-}
-
-// Remove category
-function removeCategory(category) {
-    categories = categories.filter(c => c !== category);
-    localStorage.setItem('categories', JSON.stringify(categories));
-    loadCategories();
-}
-
-// Update products list
-function updateProductsList() {
-    const productsList = document.getElementById('productsList');
-    productsList.innerHTML = products.map(product => `
-        <div class="product-card">
-            <img src="${product.imageUrl}" alt="${product.name}" style="width: 100px; height: 100px; object-fit: cover;">
-            <div>
-                <h3>${product.name}</h3>
-                <p>Price: $${product.price}</p>
-                <p>Category: ${product.category}</p>
-                <button onclick="removeProduct('${product.id}')" class="btn-danger">Remove</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Remove product
-function removeProduct(productId) {
-    products = products.filter(product => product.id !== productId);
-    localStorage.setItem('products', JSON.stringify(products));
-    updateProductsList();
-}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {

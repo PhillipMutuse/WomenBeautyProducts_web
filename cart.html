@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Top Navigation -->
+    <div class="top-nav">
         <div class="container">
             <a href="index.html" class="logo">Beauty Bloom</a>
             <div class="nav-links">
@@ -24,6 +24,114 @@
 
     <!-- Shopping Cart -->
     <section class="cart-section">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+
+            <div class="cart-summary">
+                <h2>Cart Summary</h2>
+                <div class="cart-total">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">KES 0.00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Delivery:</span>
+                    <span id="delivery">KES 0.00</span>
+                </div>
+                <div class="cart-total total">
+                    <span>Total:</span>
+                    <span id="total">KES 0.00</span>
+                </div>
+                <a href="checkout.html" class="btn">Proceed to Checkout</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Load cart items from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let subtotal = 0;
+
+        // Calculate totals
+        function calculateTotals() {
+            subtotal = 0;
+            cart.forEach(item => {
+                const itemPrice = parseFloat(item.price.replace('$', ''));
+                subtotal += itemPrice * item.quantity;
+            });
+
+            // Update totals display
+            document.getElementById('subtotal').textContent = `KES ${subtotal.toFixed(2)}`;
+            document.getElementById('delivery').textContent = `KES ${subtotal > 0 ? '200.00' : '0.00'}`;
+            document.getElementById('total').textContent = `KES ${(subtotal + (subtotal > 0 ? 200 : 0)).toFixed(2)}`;
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-info">
+                        <h3>${item.name}</h3>
+                        <p class="cart-item-price">KES ${parseFloat(item.price.replace('$', '')).toFixed(2)}</p>
+                        <div class="quantity-controls">
+                            <button class="btn" onclick="updateQuantity('${item.name}', -1)">-</button>
+                            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity('${item.name}', this.value - ${item.quantity})">
+                            <button class="btn" onclick="updateQuantity('${item.name}', 1)">+</button>
+                        </div>
+                        <button class="btn remove-item" onclick="removeFromCart('${item.name}')">Remove</button>
+                    </div>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+
+            calculateTotals();
+        }
+
+        // Update quantity
+        function updateQuantity(productName, change) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.name === productName);
+            
+            if (item) {
+                item.quantity += change;
+                if (item.quantity < 1) {
+                    removeFromCart(productName);
+                } else {
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                }
+            }
+        }
+
+        // Remove item from cart
+        function removeFromCart(productName) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const updatedCart = cart.filter(item => item.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            updateCartDisplay();
+        }
+
+        // Initialize cart display
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartDisplay();
+        });
+    </script>
         <div class="container">
             <h1>Shopping Cart</h1>
             

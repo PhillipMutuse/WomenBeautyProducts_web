@@ -27,36 +27,123 @@
     <section class="shop-section">
         <div class="container">
             <h1>Our Products</h1>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Luxury Face Cream" class="product-image">
-                    <div class="product-info">
-                        <h3 class="product-name">Luxury Face Cream</h3>
-                        <p class="product-price">$49.99</p>
-                        <a href="product.html" class="btn">View Details</a>
-                        <button class="btn">Shop Now</button>
+            <div class="shop-content">
+                <!-- Category Filters -->
+                <div class="category-filters">
+                    <button class="category-btn active" onclick="showCategory('all')">All</button>
+                    <button class="category-btn" onclick="showCategory('Skincare')">Skincare</button>
+                    <button class="category-btn" onclick="showCategory('Makeup')">Makeup</button>
+                    <button class="category-btn" onclick="showCategory('Hair Care')">Hair Care</button>
+                    <button class="category-btn" onclick="showCategory('Fragrances')">Fragrances</button>
+                    <button class="category-btn" onclick="showCategory('Nail Care')">Nail Care</button>
+                </div>
+
+                <!-- Products by Category -->
+                <div class="products-by-category">
+                    <!-- Skincare -->
+                    <div class="category-section" id="skincare">
+                        <h2>Skincare</h2>
+                        <div class="product-grid">
+                            <div class="product-card">
+                                <img src="https://via.placeholder.com/300x200" alt="Luxury Face Cream" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-name">Luxury Face Cream</h3>
+                                    <p class="product-price">KES 4999</p>
+                                    <a href="product.html" class="btn">View Details</a>
+                                    <button class="btn">Add to Cart</button>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <img src="https://via.placeholder.com/300x200" alt="Radiance Serum" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-name">Radiance Serum</h3>
+                                    <p class="product-price">KES 3499</p>
+                                    <a href="product.html" class="btn">View Details</a>
+                                    <button class="btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Makeup -->
+                    <div class="category-section" id="makeup">
+                        <h2>Makeup</h2>
+                        <div class="product-grid">
+                            <div class="product-card">
+                                <img src="https://via.placeholder.com/300x200" alt="Matte Lipstick Set" class="product-image">
+                                <div class="product-info">
+                                    <h3 class="product-name">Matte Lipstick Set</h3>
+                                    <p class="product-price">KES 2999</p>
+                                    <a href="product.html" class="btn">View Details</a>
+                                    <button class="btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hair Care -->
+                    <div class="category-section" id="haircare">
+                        <h2>Hair Care</h2>
+                        <div class="product-grid">
+                            <!-- Add hair care products here -->
+                        </div>
+                    </div>
+
+                    <!-- Fragrances -->
+                    <div class="category-section" id="fragrances">
+                        <h2>Fragrances</h2>
+                        <div class="product-grid">
+                            <!-- Add fragrances here -->
+                        </div>
+                    </div>
+
+                    <!-- Nail Care -->
+                    <div class="category-section" id="nailcare">
+                        <h2>Nail Care</h2>
+                        <div class="product-grid">
+                            <!-- Add nail care products here -->
+                        </div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Glow Serum" class="product-image">
-                    <div class="product-info">
-                        <h3 class="product-name">Radiance Serum</h3>
-                        <p class="product-price">$34.99</p>
-                        <a href="product.html" class="btn">View Details</a>
-                        <button class="btn">Shop Now</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Lipstick Set" class="product-image">
-                    <div class="product-info">
-                        <h3 class="product-name">Matte Lipstick Set</h3>
-                        <p class="product-price">$29.99</p>
-                        <a href="product.html" class="btn">View Details</a>
-                        <button class="btn">Shop Now</button>
-                    </div>
-                </div>
-                <!-- Add more product cards as needed -->
             </div>
+
+            <script>
+                // Category filtering
+                function showCategory(category) {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.category-btn').forEach(button => {
+                        button.classList.remove('active');
+                    });
+                    // Add active class to clicked button
+                    event.currentTarget.classList.add('active');
+
+                    // Show all products by default
+                    if (category === 'all') {
+                        document.querySelectorAll('.category-section').forEach(section => {
+                            section.style.display = 'block';
+                        });
+                        return;
+                    }
+
+                    // Show only selected category
+                    document.querySelectorAll('.category-section').forEach(section => {
+                        if (section.id === category.toLowerCase()) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                }
+
+                // Add event listener to all category buttons
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.querySelectorAll('.category-btn').forEach(button => {
+                        button.addEventListener('click', (e) => {
+                            showCategory(e.target.textContent);
+                        });
+                    });
+                });
+            </script>
         </div>
     </section>
 

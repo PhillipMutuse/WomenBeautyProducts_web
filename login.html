@@ -9,82 +9,72 @@
     <style>
         .login-container {
             max-width: 400px;
-            margin: 100px auto;
+            margin: 4rem auto;
             padding: 2rem;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px var(--shadow-color-dark);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px var(--shadow-color);
         }
-        .login-header {
-            text-align: center;
-            margin-bottom: 2rem;
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
-        .login-header h1 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        .login-header p {
-            color: var(--text-light);
-        }
+
         .form-group {
-            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
+
         .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
             color: var(--text-color);
+            font-weight: 500;
         }
+
         .form-group input {
-            width: 100%;
             padding: 0.8rem;
             border: 1px solid var(--border-color);
-            border-radius: 4px;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
-        .btn-primary {
-            width: 100%;
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .login-btn {
             padding: 1rem;
             background: var(--primary-color);
             color: var(--accent-color);
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
-        .btn-primary:hover {
+
+        .login-btn:hover {
             background: #ff1493;
+            transform: translateY(-2px);
         }
-        .btn-secondary {
-            display: block;
-            width: 100%;
-            padding: 0.8rem;
-            background: var(--secondary-color);
-            color: var(--text-color);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-align: center;
+
+        .login-links {
+            display: flex;
+            justify-content: space-between;
             margin-top: 1rem;
-            transition: background-color 0.3s ease;
-        }
-        .btn-secondary:hover {
-            background: #ff8000;
-        }
-        .auth-switch {
-            text-align: center;
-            margin-top: 1.5rem;
             color: var(--text-light);
         }
-        .auth-switch a {
+
+        .login-links a {
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        .auth-switch a:hover {
-            text-decoration: underline;
+
+        .login-links a:hover {
             color: #ff1493;
         }
     </style>
@@ -120,28 +110,21 @@
 
     <!-- Login Container -->
     <div class="login-container">
-        <div class="login-header">
-            <h1>Welcome Back</h1>
-            <p>Sign in to your account</p>
-        </div>
-        
-        <form id="loginForm">
+        <h2>Login to Your Account</h2>
+        <form class="login-form" onsubmit="return handleLogin()">
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" required>
+                <input type="email" id="email" required placeholder="Enter your email">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" required>
+                <input type="password" id="password" required placeholder="Enter your password">
             </div>
-            <button type="submit" class="btn-primary">Login</button>
-            <button type="button" class="btn-secondary" onclick="toggleAuthForm('register')">Create Account</button>
-            <div class="auth-switch">
-                <a href="admin.html">Admin Login</a>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="login-links">
+                <a href="register.html">Create Account</a>
+                <a href="forgot-password.html">Forgot Password?</a>
             </div>
-        </form>
-
-        <form id="registerForm" style="display: none;">
             <div class="form-group">
                 <label for="registerEmail">Email Address</label>
                 <input type="email" id="registerEmail" required>
