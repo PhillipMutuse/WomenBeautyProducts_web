@@ -1,9 +1,9 @@
 /* Global Styles */
 :root {
-    --primary-color: #ff69b4;      /* Sassy pink */
-    --secondary-color: #ffd700;    /* Gold */
-    --accent-color: #fff;          /* White */
-    --background-color: #fff;      /* White */
+    --primary-color: #ff69b4;
+    --secondary-color: #ffd700;
+    --accent-color: #fff;
+    --background-color: #fff;
     --text-color: #333;
     --text-light: #666;
     --border-color: #f0f0f0;
@@ -12,7 +12,6 @@
     --gradient-primary: linear-gradient(135deg, #ff69b4, #ff1493);
     --gradient-secondary: linear-gradient(135deg, #ffd700, #ff8000);
 }
-
 
 .auth-container {
     display: flex;
