@@ -1,239 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Beauty Bloom</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="cart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Beauty Bloom</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <a href="index.html" class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-flower"></i>
-            </div>
-            Beauty Bloom
-        </a>
-        <div class="nav-links">
-            <a href="index.html">
-                <i class="fas fa-home"></i>
-                Home
-            </a>
-            <a href="shop.html">
-                <i class="fas fa-shopping-bag"></i>
-                Shop
-            </a>
-            <a href="about.html">
-                <i class="fas fa-info-circle"></i>
-                About
-            </a>
-            <a href="contact.html">
-                <i class="fas fa-envelope"></i>
-                Contact
-            </a>
-            <a href="login.html">
-                <i class="fas fa-sign-in-alt"></i>
-                Login
-            </a>
-            <a href="cart.html">
-                <i class="fas fa-shopping-cart"></i>
-                Cart
-            </a>
-        </div>
+  <!-- Header + Navigation -->
+  <header class="main-header">
+    <div class="logo">BEAUTY BLOOM</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products...">
+      <i class="fas fa-search"></i>
     </div>
+    <div class="header-icons">
+      <a href="index.html"><i class="fas fa-home"></i></a>
+      <a href="wishlist.html"><i class="far fa-heart"></i></a>
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      <a href="login.html"><i class="fas fa-user"></i></a>
+    </div>
+  </header>
 
-    <!-- Shop Section -->
-    <section class="shop-section">
-        <div class="container">
-            <h1>Our Products</h1>
-            <div class="shop-content">
-                <!-- Category Filters -->
-                <div class="category-filters">
-                    <div class="category-title">
-                        <h3>Browse by Category</h3>
-                        <div class="category-search">
-                            <input type="text" id="categorySearch" placeholder="Search categories...">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                    <div class="category-grid">
-                        <div class="category-item active" data-category="all">
-                            <i class="fas fa-box-open"></i>
-                            <span>All Categories</span>
-                        </div>
-                        <div class="category-item" data-category="skincare">
-                            <i class="fas fa-face-smile"></i>
-                            <span>Skincare</span>
-                        </div>
-                        <div class="category-item" data-category="makeup">
-                            <i class="fas fa-palette"></i>
-                            <span>Makeup</span>
-                        </div>
-                        <div class="category-item" data-category="haircare">
-                            <i class="fas fa-hair-cut"></i>
-                            <span>Hair Care</span>
-                        </div>
-                        <div class="category-item" data-category="fragrances">
-                            <i class="fas fa-leaf"></i>
-                            <span>Fragrances</span>
-                        </div>
-                        <div class="category-item" data-category="nailcare">
-                            <i class="fas fa-hand-point-up"></i>
-                            <span>Nail Care</span>
-                        </div>
-                    </div>
-                </div>
+  <nav class="mega-nav">
+    <ul>
+      <li><a href="#skincare">Skincare</a></li>
+      <li><a href="#makeup">Makeup</a></li>
+      <li><a href="#haircare">Hair</a></li>
+      <li><a href="#fragrance">Fragrance</a></li>
+    </ul>
+  </nav>
 
-                <!-- Products by Category -->
-                <div class="products-by-category">
-                    <!-- Skincare -->
-                    <div class="category-section" id="skincare">
-                        <h2>Skincare</h2>
-                        <div class="product-grid">
-                            <div class="product-card">
-                                <img src="images/Luxury face cream.png" alt="Luxury Face Cream" class="product-image">
-                                <div class="product-info">
-                                    <h3 class="product-name">Luxury Face Cream</h3>
-                                    <p class="product-price">KES 4999</p>
-                                    <a href="product.html" class="btn">View Details</a>
-                                    <button class="btn">Add to Cart</button>
-                                </div>
-                            </div>
-                            <div class="product-card">
-                                <img src="images/Radiance Serum.png" alt="Radiance Serum" class="product-image">
-                                <div class="product-info">
-                                    <h3 class="product-name">Radiance Serum</h3>
-                                    <p class="product-price">KES 3499</p>
-                                    <a href="product.html" class="btn">View Details</a>
-                                    <button class="btn">Add to Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <!-- Filters + Shop Content -->
+  <section class="product-section">
+    <h2>All Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="images/Luxury face cream.png" alt="Luxury Face Cream">
+        <h3>Luxury Face Cream</h3>
+        <p>KES 4999</p>
+        <button class="btn-primary" onclick="addToCart('Luxury Face Cream', 4999, 'images/Luxury face cream.png')">Add to Cart</button>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+      </div>
 
-                    <!-- Makeup -->
-                    <div class="category-section" id="makeup">
-                        <h2>Makeup</h2>
-                        <div class="product-grid">
-                            <div class="product-card">
-                                <img src="images/matte lipstick set.png" alt="Matte Lipstick Set" class="product-image">
-                                <div class="product-info">
-                                    <h3 class="product-name">Matte Lipstick Set</h3>
-                                    <p class="product-price">KES 2999</p>
-                                    <a href="product.html" class="btn">View Details</a>
-                                    <button class="btn">Add to Cart</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="product-card">
+        <img src="images/Radiance Serum.png" alt="Radiance Serum">
+        <h3>Radiance Serum</h3>
+        <p>KES 3499</p>
+        <button class="btn-primary" onclick="addToCart('Radiance Serum', 3499, 'images/Radiance Serum.png')">Add to Cart</button>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+      </div>
 
-                    <!-- Hair Care -->
-                    <div class="category-section" id="haircare">
-                        <h2>Hair Care</h2>
-                        <div class="product-grid">
-                            <!-- Add hair care products here -->
-                        </div>
-                    </div>
+      <div class="product-card">
+        <img src="images/Matte Lipstick Set.png" alt="Matte Lipstick Set">
+        <h3>Matte Lipstick Set</h3>
+        <p>KES 2999</p>
+        <button class="btn-primary" onclick="addToCart('Matte Lipstick Set', 2999, 'images/Matte Lipstick Set.png')">Add to Cart</button>
+        <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+      </div>
+    </div>
+  </section>
 
-                    <!-- Fragrances -->
-                    <div class="category-section" id="fragrances">
-                        <h2>Fragrances</h2>
-                        <div class="product-grid">
-                            <!-- Add fragrances here -->
-                        </div>
-                    </div>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Beauty Bloom. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+        <a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a>
+      </div>
+    </div>
+  </footer>
 
-                    <!-- Nail Care -->
-                    <div class="category-section" id="nailcare">
-                        <h2>Nail Care</h2>
-                        <div class="product-grid">
-                            <!-- Add nail care products here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <script>
+    function toggleWishlist(btn) {
+      const icon = btn.querySelector('i');
+      icon.classList.toggle('far');
+      icon.classList.toggle('fas');
+    }
 
-            <script>
-                // Category filtering
-                function showCategory(category) {
-                    // Remove active class from all items
-                    document.querySelectorAll('.category-item').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                    
-                    // Add active class to clicked item
-                    event.currentTarget.classList.add('active');
-
-                    // Show all products by default
-                    if (category === 'all') {
-                        document.querySelectorAll('.category-section').forEach(section => {
-                            section.style.display = 'block';
-                        });
-                        return;
-                    }
-
-                    // Show only selected category
-                    document.querySelectorAll('.category-section').forEach(section => {
-                        const sectionId = section.id;
-                        if (sectionId === category) {
-                            section.style.display = 'block';
-                        } else {
-                            section.style.display = 'none';
-                        }
-                    });
-                }
-
-                // Add event listener to all category items
-                document.addEventListener('DOMContentLoaded', () => {
-                    // Add click event listeners to category items
-                    document.querySelectorAll('.category-item').forEach(item => {
-                        item.addEventListener('click', function(e) {
-                            const category = e.currentTarget.dataset.category;
-                            showCategory(category);
-                        });
-                    });
-
-                    // Category search functionality
-                    const searchInput = document.getElementById('categorySearch');
-                    const categoryItems = document.querySelectorAll('.category-item');
-                    
-                    searchInput.addEventListener('input', function(e) {
-                        const searchTerm = e.target.value.toLowerCase();
-                        categoryItems.forEach(item => {
-                            const text = item.textContent.toLowerCase();
-                            if (text.includes(searchTerm)) {
-                                item.style.display = 'flex';
-                            } else {
-                                item.style.display = 'none';
-                            }
-                        });
-                    });
-
-                    // Initialize with all categories shown
-                    showCategory('all');
-                });
-            </script>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                <p>Email: info@beautybloom.com</p>
-                <p>Phone: (555) 123-4567</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    function addToCart(name, price, image) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
 </body>
 </html>

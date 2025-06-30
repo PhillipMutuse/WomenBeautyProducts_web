@@ -1,74 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Face Cream - Beauty Bloom</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Face Cream - Beauty Bloom</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Beauty Bloom</a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-        </div>
-    </nav>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo">BEAUTY BLOOM</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..." />
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="header-icons">
+      <a href="wishlist.html"><i class="far fa-heart"></i></a>
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+      <a href="login.html"><i class="fas fa-user"></i></a>
+    </div>
+  </header>
 
-    <!-- Product Details -->
-    <section class="product-details">
-        <div class="container">
-            <div class="product-content">
-                <img src="images/Luxury face cream.png" alt="Luxury Face Cream" class="product-large-image">
-                
-                <div class="product-info">
-                    <h1>Luxury Face Cream</h1>
-                    <p class="product-price">$49.99</p>
-                    
-                    <div class="product-description">
-                        <h2>Product Description</h2>
-                        <p>Discover the ultimate luxury in skincare with our premium face cream. Formulated with natural ingredients and advanced technology, this cream provides deep hydration and nourishment for your skin.</p>
-                        
-                        <h3>Key Benefits</h3>
-                        <ul>
-                            <li>Deep hydration</li>
-                            <li>Anti-aging properties</li>
-                            <li>Natural ingredients</li>
-                            <li>Non-greasy formula</li>
-                        </ul>
-                    </div>
-
-                    <div class="product-actions">
-                        <button class="btn">Add to Cart</button>
-                        <a href="cart.html" class="btn">Buy Now</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-gallery">
+        <img src="images/Luxury face cream.png" alt="Luxury Face Cream" class="main-image" id="mainImage" />
+        <div class="thumbnail-row">
+          <img src="images/Luxury face cream.png" onclick="setImage(this.src)" />
+          <img src="images/serum.png" onclick="setImage(this.src)" />
+          <img src="images/shampoo.png" onclick="setImage(this.src)" />
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                <p>Email: info@beautybloom.com</p>
-                <p>Phone: (555) 123-4567</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                </div>
-            </div>
+      <div class="product-info">
+        <h1>Luxury Face Cream</h1>
+        <p class="product-price">KES 4999</p>
+
+        <div class="product-tabs">
+          <button class="tab-btn active" onclick="showTab('desc')">Description</button>
+          <button class="tab-btn" onclick="showTab('ingred')">Ingredients</button>
+          <button class="tab-btn" onclick="showTab('reviews')">Reviews</button>
         </div>
-    </footer>
+
+        <div id="desc" class="tab-content active">
+          <p>Experience deep hydration and radiant glow with our luxurious face cream, enriched with natural extracts for all skin types.</p>
+        </div>
+        <div id="ingred" class="tab-content">
+          <ul>
+            <li>Hyaluronic Acid</li>
+            <li>Vitamin C</li>
+            <li>Aloe Vera</li>
+            <li>Shea Butter</li>
+          </ul>
+        </div>
+        <div id="reviews" class="tab-content">
+          <p><strong>Sarah:</strong> "This cream changed my life. Love the texture and glow!"</p>
+          <p><strong>Emily:</strong> "Hydrating without being greasy. 5/5!"</p>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn-primary">Add to Cart</button>
+          <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="far fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Beauty Bloom. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function setImage(src) {
+      document.getElementById('mainImage').src = src;
+    }
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      document.querySelector(`.tab-btn[onclick*='${tabId}']`).classList.add('active');
+    }
+    function toggleWishlist(btn) {
+      const icon = btn.querySelector('i');
+      icon.classList.toggle('far');
+      icon.classList.toggle('fas');
+    }
+  </script>
 </body>
 </html>
