@@ -1,0 +1,25 @@
+<!-- public/admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Beauty Bloom</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="admin-container">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <h2>Welcome, Admin 🎉</h2>
+
+    <button onclick="location.href='add-product.html'">➕ Add Product</button>
+    <button onclick="location.href='add-category.html'">➕ Add Category</button>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Product - Admin Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <h2>Add New Product</h2>
+    <form id="addProductForm">
+      <input type="text" id="name" placeholder="Product Name" required />
+      <textarea id="description" placeholder="Product Description" required></textarea>
+      <input type="number" id="price" placeholder="Price (Ksh)" required />
+      <input type="text" id="imageUrl" placeholder="Image URL" required />
+      <select id="category" required>
+        <option value="">-- Select Category --</option>
+      </select>
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+
+  <script>
+    // Load categories on page load
+    window.onload = async () => {
+      const res = await fetch('http://localhost:5000/api/categories');
+      const categories = await res.json();
+      const select = document.getElementById('category');
+      categories.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat._id;
+        option.textContent = cat.name;
+        select.appendChild(option);
+      });
+    };
+
+    // Handle product form submission
+    document.getElementById('addProductForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('name').value,
+        description: document.getElementById('description').value,
+        price: document.getElementById('price').value,
+        imageUrl: document.getElementById('imageUrl').value,
+        category: document.getElementById('category').value
+      };
+
+      const res = await fetch('http://localhost:5000/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        alert('✅ Product added successfully!');
+        document.getElementById('addProductForm').reset();
+      } else {
+        alert('❌ Failed to add product');
+      }
+    });
+
+    function logout() {
+      // Clear token (optional logic depending on your auth)
+      alert('Logged out');
+      window.location.href = '/login.html';
+    }
+  </script>
+</body>
+</html>

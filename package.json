@@ -1,9 +1,0 @@
-{
-  "name": "women-beauty-products",
-  "version": "1.0.0",
-  "description": "Frontend for Women's Beauty Products website",
-  "scripts": {
-    "start": "echo 'No backend server needed for frontend only'",
-    "dev": "echo 'No backend server needed for frontend only'"
-  }
-}
